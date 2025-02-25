@@ -1,0 +1,8 @@
+[DEFINES]
+  DEC_SPECIFICATION = 0x0001001B
+  PACKAGE_NAME      = HackPack
+
+[Includes]
+    zycore-c/include
+    zydis/include
+    

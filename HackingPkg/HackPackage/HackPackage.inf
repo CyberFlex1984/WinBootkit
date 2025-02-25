@@ -1,0 +1,74 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = HackPackage
+  FILE_GUID                      = a2848d45-626b-4d56-96ba-7b5f5f72990e
+  MODULE_TYPE                    = DXE_RUNTIME_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+[Sources]
+  main.cpp
+  LocateFile.cpp
+  SetServicePointer.cpp
+  TrampolineHook.cpp
+  ExitBootServices.cpp
+  OslArchTransferToKernel.cpp
+  nt_helper.cpp
+  SetVirtualAddressMap.cpp
+  Mapper.cpp
+
+#I don't found another way how to do that
+  ../zydis/src/Decoder.c
+  ../zydis/src/DecoderData.c
+  ../zydis/src/Disassembler.c
+  ../zydis/src/Encoder.c
+  ../zydis/src/EncoderData.c
+  ../zydis/src/FormatterATT.c
+  ../zydis/src/FormatterBase.c
+  ../zydis/src/FormatterBuffer.c
+  ../zydis/src/Formatter.c
+  ../zydis/src/FormatterIntel.c
+  ../zydis/src/MetaInfo.c
+  ../zydis/src/Mnemonic.c
+  ../zydis/src/Register.c
+  ../zydis/src/Segment.c
+  ../zydis/src/SharedData.c
+  ../zydis/src/String.c
+  ../zydis/src/Utils.c
+  ../zydis/src/Zydis.c
+
+  ../zycore-c/src/Allocator.c
+  ../zycore-c/src/ArgParse.c
+  ../zycore-c/src/Bitset.c
+  ../zycore-c/src/Format.c
+  ../zycore-c/src/List.c
+  ../zycore-c/src/String.c
+  ../zycore-c/src/Vector.c
+  ../zycore-c/src/Zycore.c
+
+
+[Packages]
+  HackingPkg/HackPack.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  MemoryAllocationLib
+  BaseMemoryLib
+  BaseLib
+  UefiLib
+  DevicePathLib
+  DebugLib
+  UefiRuntimeServicesTableLib
+  UefiRuntimeLib
+  TimerLib
+  DevicePathLib
+[Protocols]
+  gEfiSimpleTextOutProtocolGuid  
+  gEfiLoadedImageProtocolGuid
+  gEfiSecurityArchProtocolGuid
+  gEfiSecurity2ArchProtocolGuid
+  gEfiSerialIoProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+[Depex]
+  gEfiSimpleTextOutProtocolGuid

@@ -1,0 +1,36 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SecureBootBypass
+  FILE_GUID                      = a2848d45-626b-4d56-96ba-7b5f5f72991e
+  MODULE_TYPE                    = DXE_RUNTIME_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+[Sources]
+  main.cpp
+  LocateFile.cpp
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  MemoryAllocationLib
+  BaseMemoryLib
+  BaseLib
+  UefiLib
+  DevicePathLib
+  DebugLib
+  UefiRuntimeServicesTableLib
+  UefiRuntimeLib
+  TimerLib
+  DevicePathLib
+[Protocols]
+  gEfiSimpleTextOutProtocolGuid  
+  gEfiLoadedImageProtocolGuid
+  gEfiSecurityArchProtocolGuid
+  gEfiSecurity2ArchProtocolGuid
+  gEfiSerialIoProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+[Depex]
+  gEfiSimpleTextOutProtocolGuid
